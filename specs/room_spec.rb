@@ -30,11 +30,13 @@ class TestRoom < Minitest::Test
   @song_name14 = Song.new("Old England", "The Waterboys", "This is the Sea", "Pop")
   @song_name15 = Song.new("Delilah", "Queen", "Innuendo", "Pop")
 
-  @playlist_room_1 = [@song_name15, @song_name14, @song_name13]
-  @playlist_room_2 = [@song_name1, @song_name5, @song_name9]
-  @playlist_room_3 = [@song_name2, @song_name6, @song_name7]
+  @room_1_playlist = [@song_name15, @song_name14, @song_name13]
+  @room_2_playlist = [@song_name1, @song_name5, @song_name9]
+  @room_3_playlist = [@song_name2, @song_name6, @song_name7]
 
-  @playlist_1 = Room.new("Playlist_Room_1",50, @playlist_room_1)
+  @room_a = Room.new("Room_1_playlist",50, @room_1_playlist)
+  @room_b = Room.new("Room_2_playlist", 35, @room_2_playlist)
+  @room_c = Room.new("Room_3_playlist", 30, @room_3_playlist)
 
 
 end
@@ -49,7 +51,12 @@ end
   end
 
   def test_has_playlist
-    assert_equal(3, @playlist_1.playlist.count)
+    assert_equal(3, @playlist_room_1.count)
+
+  end
+
+  def test_add_song_to_room_playlist
+    assert_equal(4, @playlist_room_1.count)
 
   end
 

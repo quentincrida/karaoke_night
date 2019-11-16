@@ -9,7 +9,9 @@ attr_reader :room_name, :capacity, :playlist
 
   end
 
-
+  def add_song_to_playlist
+     return @room_1_playlist.push(@song_name8)
+  end
 
 
 end
