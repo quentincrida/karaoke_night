@@ -17,7 +17,7 @@ class TestGuest < Minitest::Test
     @name4 = Guest.new("Quentin")
 
 
-    @guests = [@name1, @name2, @name3, @name4]
+    @guests = [@name1]
 
     end
 

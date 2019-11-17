@@ -3,11 +3,11 @@ require('minitest/reporters')
 require_relative('../room.rb')
 require_relative('../song.rb')
 require_relative('../guest.rb')
+require('pry')
 
-MiniTest::Reporters.use! MiniTest::Reporters::SpecReporter.new
+Minitest::Reporters.use! MiniTest::Reporters::SpecReporter.new
 
-
-class TestRoom < Minitest::Test
+class TestRoom < MiniTest::Test
   def setup()
   @room1 = Room.new("Room_1", 50, @playlist_room_1)
   @room2 = Room.new("Room_2", 35, @playlist_room_2)
@@ -39,6 +39,7 @@ class TestRoom < Minitest::Test
   @room_c = Room.new("Room_3_playlist", 30, @room_3_playlist)
 
 
+
 end
 
   def test_room_name
@@ -48,21 +49,30 @@ end
   def test_capacity
     assert_equal(50, @room1.capacity)
 
+
   end
 
   def test_has_playlist
-    assert_equal(3, @playlist_room_1.count)
-
-  end
-
-  def test_add_song_to_room_playlist
-    assert_equal(4, @playlist_room_1.count)
+    assert_equal(3, @room_1_playlist.count)
 
   end
 
 
+  def test_add_song_to_room
+   @room_a.add_song_to_room(@song_name11)
+   assert_equal(4,@room_1_playlist.count)
+  end
 
-
-
+  #
+  # def test_guest_check_in
+  #   @guests.guest_check_in(@name2)
+  #   assert_equal(2, @guests.count)
+  # end
+  #
+  # def test_guest_check_out
+  #   @guests.guest_check_out(@name1)
+  #   assert_equal(0, @guests.count)
+  #
+  # end
 
 end
